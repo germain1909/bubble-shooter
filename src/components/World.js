@@ -18,14 +18,25 @@ element: document.body,
 engine: engine
 });
 
+//rectangles go x,y,width,height
 // create two boxes and a ground
+//width = |        | vs |  |
+//height = __              ___
+
+//                   vs   
+//                         ___
+
+//         __
 var boxA = Bodies.rectangle(400, 200, 80, 80);
 var boxB = Bodies.rectangle(450, 50, 80, 80);
-var ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true });
-var leftBarrier= Bodies.rectangle(400, 610, 30, 810, { isStatic: true });
+let ground = Bodies.rectangle(400, 610, 810, 7, { isStatic: true });
+var leftBarrier= Bodies.rectangle(30, 610, 30, 810, { isStatic: true });
+var rightBarrier= Bodies.rectangle(600, 610, 30, 810, { isStatic: true });
+let topBarrier = Bodies.rectangle(400, 170, 810, 60, { isStatic: true });
+
 
 // add all of the bodies to the world
-World.add(engine.world, [boxA, boxB, ground,leftBarrier]);
+World.add(engine.world, [boxA, boxB, ground,leftBarrier,rightBarrier,topBarrier]);
 
 // run the engine
 Engine.run(engine);
