@@ -1,5 +1,6 @@
 import React from 'react';
 import Matter from 'matter-js';
+import orange from '../sprites/orange.png'
 
 export function MatterTest(props) {
 
@@ -27,6 +28,7 @@ var render = Render.create({
         width: 800,
         height: 600,
         showVelocity: true,
+        wireframes: false, // disable Wireframe
         showAngleIndicator: true
     }
 });
@@ -59,21 +61,20 @@ World.add(world, [
 engine.world.gravity.y = -1;
 
 var stack = Composites.stack(50, 120, 11, 5, 0, 0, function(x, y) {
-    switch (Math.round(Common.random(0, 1))) {
 
-    case 0:
-        if (Common.random() < 0.8) {
-            return Bodies.rectangle(x, y, Common.random(20, 50), Common.random(20, 50));
-        } else {
-            return Bodies.rectangle(x, y, Common.random(80, 120), Common.random(20, 30));
+    //maybe switch statement here
+    return Bodies.rectangle(x, y, Common.random(20, 50), Common.random(20, 50),
+    {
+
+    render: {
+        sprite: {
+            texture:orange,
+            xScale: 0.04,
+            yScale: 0.04
         }
-    case 1:
-        return Bodies.polygon(x, y, Math.round(Common.random(1, 8)), Common.random(20, 50));
-    default:
-            return null;
     }
-    
-    
+}
+    ) 
 });
 
 World.add(world, stack);
@@ -113,6 +114,7 @@ Render.lookAt(render, {
         
         <div>
           <h1>Germain</h1>
+          <img src={orange} alt='t'></img>
         </div>
       );
   }
