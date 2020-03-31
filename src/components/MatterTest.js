@@ -39,7 +39,7 @@ Runner.run(runner, engine);
 
 // add bodies
 var ground = Bodies.rectangle(395, 600, 815, 50, { isStatic: true }),
-        rockOptions = { density: 0.004 },
+        rockOptions = { density: 0.004,restitution:1},
         rock = Bodies.polygon(170, 450, 8, 20, rockOptions),
         anchor = { x: 170, y: 450 },
         elastic = Constraint.create({ 
@@ -52,8 +52,8 @@ World.add(world, [
     ground,
     elastic,
     rock,
-    Bodies.rectangle(800, 300, 50, 600, { isStatic: true }),
-    Bodies.rectangle(0, 300, 50, 600, { isStatic: true })
+    Bodies.rectangle(800, 300, 50, 600, { isStatic: true,restitution:1 }),
+    Bodies.rectangle(0, 300, 50, 600, { isStatic: true,restitution:1 })
 ]);
 
 engine.world.gravity.y = -1;
