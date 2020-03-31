@@ -26,7 +26,7 @@ export default function Game(){
   }
 
   return(
-    <div><World/></div> 
+    <div><MatterTest/></div> 
 )
 }
 

@@ -3,9 +3,6 @@ import Matter from 'matter-js';
 
 export function MatterTest(props) {
 
-    var Example = Example || {};
-
-    Example.avalanche = function() {
         Matter.use(
             'matter-wrap'
         );
@@ -81,21 +78,7 @@ export function MatterTest(props) {
                 min: { x: render.bounds.min.x, y: render.bounds.min.y },
                 max: { x: render.bounds.max.x, y: render.bounds.max.y }
             };
-        }
-    
-        // context for MatterTools.Demo
-        return {
-            engine: engine,
-            runner: runner,
-            render: render,
-            canvas: render.canvas,
-            stop: function() {
-                Matter.Render.stop(render);
-                Matter.Runner.stop(runner);
-            }
-        };
-    };
-    
+        } 
 
     return (
         
