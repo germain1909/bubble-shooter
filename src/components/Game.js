@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {World} from './World';
 import '../index.css';
 import Matter from 'matter-js';
+import {MatterTest} from './MatterTest';
 
 export default function Game(){
  const  [state,setState] = useState({

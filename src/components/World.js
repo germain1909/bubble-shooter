@@ -7,6 +7,8 @@ export function World(props) {
 var Engine = Matter.Engine,
 Render = Matter.Render,
 World = Matter.World,
+MouseConstraint = Matter.MouseConstraint,
+Mouse = Matter.Mouse,
 Bodies = Matter.Bodies;
 
 // create an engine
@@ -37,6 +39,25 @@ let topBarrier = Bodies.rectangle(400, 170, 810, 60, { isStatic: true });
 
 // add all of the bodies to the world
 World.add(engine.world, [boxA, boxB, ground,leftBarrier,rightBarrier,topBarrier]);
+
+ // add mouse control
+ var mouse = Mouse.create(render.canvas),
+ mouseConstraint = MouseConstraint.create(engine, {
+     mouse: mouse,
+     constraint: {
+         stiffness: 0.2,
+         render: {
+             visible: false
+         }
+     }
+ });
+
+ 
+
+ World.add(engine.world, [boxA, boxB, ground,leftBarrier,rightBarrier,topBarrier,mouseConstraint]);
+
+// keep the mouse in sync with rendering
+render.mouse = mouse;
 
 // run the engine
 Engine.run(engine);
