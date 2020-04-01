@@ -29,7 +29,6 @@ var render = Render.create({
         height: 600,
         showVelocity: true,
         wireframes: false, // disable Wireframe
-        showAngleIndicator: true
     }
 });
 
@@ -63,8 +62,11 @@ engine.world.gravity.y = -1;
 var stack = Composites.stack(50, 120, 11, 5, 0, 0, function(x, y) {
 
     //maybe switch statement here
-    return Bodies.rectangle(x, y, Common.random(20, 50), Common.random(20, 50),
+    return Bodies.circle(x, y, Common.random(10, 20),
     {
+        friction: 0.00001,
+         restitution: 0.5, 
+         density: 0.001,
 
     render: {
         sprite: {
@@ -114,7 +116,6 @@ Render.lookAt(render, {
         
         <div>
           <h1>Germain</h1>
-          <img src={orange} alt='t'></img>
         </div>
       );
   }
