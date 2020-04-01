@@ -27,8 +27,7 @@ var render = Render.create({
     options: {
         width: 800,
         height: 600,
-        showVelocity: true,
-        wireframes: false, // disable Wireframe
+        wireframes: false // disable Wireframe
     }
 });
 
